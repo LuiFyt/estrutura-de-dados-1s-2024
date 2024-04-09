@@ -26,8 +26,8 @@ int main(int argc, char* argv[]) {
     printf("\nO menor numero e: %d", menor_n);
     printf("\nO maior numero e: %d", maior_n);
 
-    for(int i = 0; i < qtd_n - 1; i++) {
-        for(int j = i; j < qtd_n; i++) {
+    for(int i = 0; i < qtd_n-1; i++) {
+        for(int j = i; j < qtd_n; j++) {
             if(vetor_ordem[i] > vetor_ordem[j]) {
                 int aux = vetor_ordem[j];
                 vetor_ordem[j] = vetor_ordem[i];
