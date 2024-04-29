@@ -53,7 +53,7 @@ int main(int argc, char* argv[]) {
     FILE* arq_regressao = fopen("regressao dados.csv", "w");
 
     if(arq_regressao == NULL) {
-        printf("Erro ao abrir regressao dados.csv.txt");
+        printf("Erro ao abrir regressao dados.csv");
         exit(1);
     }
     
