@@ -16,7 +16,6 @@ int main(int argc, char* argv[]) {
     }
 
     Dados in;
-
     int i = 0, X, mediaX, p2 = 0, p3 = 0;
     float Y, mediaY, p1 = 0, icn = 0, icp = 0, rl = 0;
 
@@ -24,9 +23,9 @@ int main(int argc, char* argv[]) {
         int rfscanf = fscanf(fp, "%d, %f", &in.num1, &in.num2);
 
         if(rfscanf != EOF){
-            X+=in.num1;
-            Y+=in.num2;
-            i++;
+         X+=in.num1;
+         Y+=in.num2;
+         i++;
         }
     } while(!feof(fp));
 
@@ -37,7 +36,7 @@ int main(int argc, char* argv[]) {
     
     for(int j = 0; j <= i; j++) {
         int rfscanf = fscanf(fp, "%d, %f", &in.num1, &in.num2);
-        
+
         if (rfscanf != EOF) {
             p1 += (in.num1 - mediaX) * (in.num2 - mediaY);
             p2 = (in.num1 - mediaX);
@@ -54,21 +53,22 @@ int main(int argc, char* argv[]) {
     FILE* arq_regressao = fopen("regressao dados.csv", "w");
 
     if(arq_regressao == NULL) {
-        printf("Erro ao abrir regressao dados.csv");
+        printf("Erro ao abrir arquivo saida.txt");
         exit(1);
     }
     
     for(int j = 0; j <= i; j++) {
         int rfscanf = fscanf(fp, "%d, %f", &in.num1, &in.num2);
+        
         if (rfscanf != EOF) {
             rl = icn * in.num1 + icp;
-            fprintf(arq_saida, "%.1f\n", rl);
+            fprintf(arq_regressao, "%.1f\n", rl);
         }
     }
 
     fclose(fp);
 
-    fclose(arq_saida);
+    fclose(arq_regressao);
 
     exit(0);
 }
