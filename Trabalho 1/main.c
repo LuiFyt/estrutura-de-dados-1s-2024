@@ -53,13 +53,13 @@ int main(int argc, char* argv[]) {
     FILE* arq_regressao = fopen("regressao dados.csv", "w");
 
     if(arq_regressao == NULL) {
-        printf("Erro ao abrir arquivo saida.txt");
+        printf("Erro ao abrir regressao dados.csv.txt");
         exit(1);
     }
     
     for(int j = 0; j <= i; j++) {
         int rfscanf = fscanf(fp, "%d, %f", &in.num1, &in.num2);
-        
+
         if (rfscanf != EOF) {
             rl = icn * in.num1 + icp;
             fprintf(arq_regressao, "%.1f\n", rl);
