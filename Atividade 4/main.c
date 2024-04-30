@@ -29,8 +29,13 @@ int main(int argc, char* argv[]) {
     printf("\n\nE ocorre quantas vezes na lista? %d\n\n", verificar_ocorrencias(H, 'E'));
 
     imprimir_inversa(H);
+    printf("\n\n");
+    imprimir_lista(H);
+    printf("\n\n");
+    inserir_no_i(H, 2, no('J', NULL));
+    imprimir_lista(H);
 
-    inserir_no_i(&H, no('Z', NULL), 0);
+    remove_no_i(H, 2, NULL);
     printf("\n\n");
     imprimir_lista(H);
 

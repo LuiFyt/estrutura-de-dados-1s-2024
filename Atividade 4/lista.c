@@ -75,13 +75,25 @@ void imprimir_inversa(No* H) {
     }
 }
 
-void inserir_no_i(No** H, No* no, int i) {
-    if(quantidade_nos(*H) >= i) {
-        for(int j = 0; j <= i; j++) {
-            if(j == i) {
-                no->proximo_no = *H;
-                *H = no;
-            }
+void inserir_no_i(No* H, int i, No* no) {
+    if(H != NULL & i > 0) {
+        if(i == 1){
+            no->proximo_no = H->proximo_no;
+            H->proximo_no = no;
+        }
+        else{
+            inserir_no_i(H->proximo_no, i-1, no);
+        }
+    }
+}
+
+void remove_no_i(No* H, int i, No* no_ant) {
+    if(H != NULL){
+        if(i == 0 & no_ant != NULL){
+            no_ant->proximo_no = H->proximo_no;
+            free(H);
+        }else{
+            remove_no_i(H->proximo_no, i-1, H);
         }
     }
 }
