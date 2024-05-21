@@ -48,27 +48,9 @@ int main(int argc, char* argv[]) {
 
     icp = mediaY - icn * mediaX;
 
-    rewind(fp);
-
-    FILE* arq_regressao = fopen("regressao dados.csv", "w");
-
-    if(arq_regressao == NULL) {
-        printf("Erro ao abrir regressao dados.csv");
-        exit(1);
-    }
-    
-    for(int j = 0; j <= i; j++) {
-        int rfscanf = fscanf(fp, "%d, %f", &in.num1, &in.num2);
-
-        if (rfscanf != EOF) {
-            rl = icn * in.num1 + icp;
-            fprintf(arq_regressao, "%.1f\n", rl);
-        }
-    }
-
     fclose(fp);
 
-    fclose(arq_regressao);
+    printf("y = %.1f*x + %.1f", icn, icp);
 
     exit(0);
 }
